@@ -1,13 +1,13 @@
-import { yarg as argv } from "./plugins/yargs.plugin"
 
+import { yarg } from "./plugins/yargs.plugin";
+import { ServerApp } from "./presentation/server.app";
 
 (async () => {
-    console.log("Antes");
     await main();
-    console.log("Despues");
-})();
+})(); 
 
-async function main() {
-
+async function main() {    
+    const {b:base,l:limit,s:showTable,n:fileName,d:destination} = yarg;
+    ServerApp.run({ base, limit, showTable,fileName,destination });
 }
 
